@@ -1,0 +1,30 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+
+START=50
+STOP=50
+
+SERVICE_USE_PID=1
+
+start() {
+        config_load "shadowsocks"
+
+        local remote rport lport pass
+
+        config_get remote config remote_server
+        config_get rport config remote_port
+        config_get lport config local_port
+        config_get pass config password
+
+        [ -z "$remote" ] || [ -z "$rport" ] || [ -z "$lport" ] || [ -z "$pass" ] && {
+                echo "missing parameters. check config"
+                exit 1
+        }
+
+        service_start /usr/bin/shadowsocks -s "$remote" -p "$rport" -l "$lport" -k "$pass" -f
+}
+
+stop() {
+        service_stop /usr/bin/shadowsocks
+}
+
