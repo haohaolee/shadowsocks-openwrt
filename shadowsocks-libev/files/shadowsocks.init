@@ -21,7 +21,7 @@ start() {
                 exit 1
         }
 
-        service_start /usr/bin/shadowsocks -s "$remote" -p "$rport" -l "$lport" -k "$pass" -f
+        service_start /usr/bin/shadowsocks -s "$remote" -p "$rport" -l "$lport" -k "$pass" -f /var/run/shadowsocks.pid
 }
 
 stop() {

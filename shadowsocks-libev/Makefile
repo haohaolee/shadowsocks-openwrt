@@ -7,7 +7,7 @@ PKG_RELEASE=$(PKG_SOURCE_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=git://github.com/haohaolee/shadowsocks-libev.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=2493de62d3b4ef5f512d930a9e84f8e14b8156d8
+PKG_SOURCE_VERSION:=cf790b82353407afd1673a84bf5d0b99c801f72f
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MAINTAINER:=haohaolee <hayatelee@gmail.com>
 # PKG_MIRROR_MD5SUM:=
@@ -40,7 +40,7 @@ CONFIGURE_ARGS+= \
 
 define Package/shadowsocks-libev/install
 	$(INSTALL_DIR) $(1)/usr/bin $(1)/etc/init.d $(1)/etc/config
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/local $(1)/usr/bin/shadowsocks
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ss $(1)/usr/bin/shadowsocks
 	$(INSTALL_BIN) ./files/shadowsocks.init $(1)/etc/init.d/shadowsocks
 	$(INSTALL_CONF) ./files/shadowsocks.config $(1)/etc/config/shadowsocks
 endef
