@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shadowsocks-libev
-PKG_VERSION:=2013-1-1
+PKG_VERSION:=2013-1-4
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=git://github.com/haohaolee/shadowsocks-libev.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=cf790b82353407afd1673a84bf5d0b99c801f72f
+PKG_SOURCE_VERSION:=7bcea143961213e2ee360b43ef8d28443d62e821
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MAINTAINER:=haohaolee <hayatelee@gmail.com>
 # PKG_MIRROR_MD5SUM:=
@@ -31,12 +31,11 @@ define Package/shadowsocks-libev/conffiles
 /etc/config/shadowsocks
 endef
 
-TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/usr/include/libev -lm
-TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib/libev -L$(STAGING_DIR)/usr/lib
+TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/usr/include/libev
+TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib/libev -L$(STAGING_DIR)/usr/lib -lm
 
 CONFIGURE_ARGS+= \
-		ac_cv_search_ev_io_start="-Wl,-static -lev" \
-        ac_cv_search_MD5="-Wl,-Bdynamic -lcrypto"
+		ac_cv_search_ev_io_start="-Wl,-static,-lev -Wl,-Bdynamic"
 
 define Package/shadowsocks-libev/install
 	$(INSTALL_DIR) $(1)/usr/bin $(1)/etc/init.d $(1)/etc/config
