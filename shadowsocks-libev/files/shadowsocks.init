@@ -14,6 +14,7 @@ start() {
         config_get remote config remote_server
         config_get rport config remote_port
         config_get lport config local_port
+        config_get cipher config cipher
         config_get pass config password
 
         [ -z "$remote" ] || [ -z "$rport" ] || [ -z "$lport" ] || [ -z "$pass" ] && {
@@ -21,7 +22,7 @@ start() {
                 exit 1
         }
 
-        service_start /usr/bin/shadowsocks -s "$remote" -p "$rport" -l "$lport" -k "$pass" -f /var/run/shadowsocks.pid
+        service_start /usr/bin/shadowsocks -s "$remote" -p "$rport" -l "$lport" ${cipher:+-m $cipher} -k "$pass" -f /var/run/shadowsocks.pid
 }
 
 stop() {
