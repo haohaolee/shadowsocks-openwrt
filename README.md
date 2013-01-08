@@ -29,12 +29,26 @@ Download OpenWrt source from [dev][] or SDK from [downloads][]. And go to the ro
     [haohaolee@arch OpenWrt-SDK]$ git clone https://github.com/haohaolee/shadowsocks-openwrt.git package/shadowsocks-openwrt
     ...
     ...
+    [haohaolee@arch OpenWrt-SDK]$ make package/shadowsocks-openwrt/libev/compile
     [haohaolee@arch OpenWrt-SDK]$ make package/shadowsocks-openwrt/libev/install
     ...
+    [haohaolee@arch OpenWrt-SDK]$ make package/shadowsocks-openwrt/shadowsocks-libev/compile
     [haohaolee@arch OpenWrt-SDK]$ make package/shadowsocks-openwrt/shadowsocks-libev/install
     ...
     
 Finally find your package in dir bin
+
+## Basic usage
+
+Log onto OpenWrt via SSH
+
+    root@Wrt:~# uci set shadowsocks.config.remote_server="you server address or name"
+    root@Wrt:~# uci set shadowsocks.config.remote_port="your server port"
+    root@Wrt:~# uci set shadowsocks.config.local_port="your local listen port"
+    root@Wrt:~# uci set shadowsocks.config.cipher="table" #or rc4
+    root@Wrt:~# uci set shadowsocks.config.password="your password"
+    root@Wrt:~# /etc/init.d/shadowsocks start # start the daemon
+    root@Wrt:~# /etc/init.d/shadowsocks enable # enable startup at boot
 
 [dev]: https://dev.openwrt.org
 [downloads]: http://downloads.openwrt.org/
