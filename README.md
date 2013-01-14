@@ -3,6 +3,8 @@ shadowsocks-openwrt
 
 A package of shadowsocks for OpenWrt
 
+### latest version: shadowsocks-libev-2013-1-10
+
 ## background
 This is a package description for OpenWrt's buildroot, which grabs source from github.com/haohaolee.com/shadowsocks-libev.
 
