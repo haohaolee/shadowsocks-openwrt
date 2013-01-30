@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shadowsocks-libev
-PKG_VERSION:=2013-1-14
+PKG_VERSION:=2013-1-26
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/haohaolee/shadowsocks-libev.git
+PKG_SOURCE_URL:=https://github.com/madeye/shadowsocks-libev.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=530b923cc3c18a5867f5e3a8dfdd8071b1978c71
+PKG_SOURCE_VERSION:=d8cc987262e5f8fcc107e14b9fe344cbca9cb891
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MAINTAINER:=haohaolee <hayatelee@gmail.com>
 # PKG_MIRROR_MD5SUM:=
@@ -23,7 +23,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/shadowsocks-libev
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libopenssl
+  DEPENDS:=
   TITLE:=shadowsocks implementation with libev
 endef
 
