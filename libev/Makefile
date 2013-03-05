@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libev
-PKG_VERSION:=4.11
+PKG_VERSION:=4.15
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://dist.schmorp.de/libev/
-PKG_MD5SUM:=cda69b858a1849dfe6ce17c930cf10cd
+PKG_MD5SUM:=3a73f247e790e2590c01f3492136ed31
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
