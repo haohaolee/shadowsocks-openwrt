@@ -12,7 +12,7 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MAINTAINER:=haohaolee <hayatelee@gmail.com>
 # PKG_MIRROR_MD5SUM:=
 
-# PKG_BUILD_DEPENDS:=
+#PKG_BUILD_DEPENDS:=libpthread
 PKG_INSTALL:=1 
 PKG_FIXUP:=autoreconf 
 
@@ -42,7 +42,6 @@ define Package/shadowsocks-libev/install
 	$(INSTALL_DIR) $(1)/usr/bin $(1)/etc/init.d $(1)/etc/config
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/ss-local $(1)/usr/bin/ss-local
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/ss-redir $(1)/usr/bin/ss-redir
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/ss-server $(1)/usr/bin/ss-server
 	$(INSTALL_BIN) ./files/shadowsocks.init $(1)/etc/init.d/shadowsocks
 	$(INSTALL_CONF) ./files/shadowsocks.json $(1)/etc/config/shadowsocks.json
 endef
