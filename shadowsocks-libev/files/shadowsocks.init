@@ -7,25 +7,10 @@ STOP=95
 SERVICE_USE_PID=1
 
 start() {
-        config_load "shadowsocks"
-
-        local remote rport lport pass
-
-        config_get remote config remote_server
-        config_get rport config remote_port
-        config_get lport config local_port
-        config_get cipher config cipher
-        config_get pass config password
-
-        [ -z "$remote" ] || [ -z "$rport" ] || [ -z "$lport" ] || [ -z "$pass" ] && {
-                echo "missing parameters. check config"
-                exit 1
-        }
-
-        service_start /usr/bin/shadowsocks -s "$remote" -p "$rport" -l "$lport" ${cipher:+-m $cipher} -k "$pass" -f /var/run/shadowsocks.pid
+        service_start /usr/bin/ss-local -c /etc/config/shadowsocks.json -f /var/run/shadowsocks.pid
 }
 
 stop() {
-        service_stop /usr/bin/shadowsocks
+        service_stop /usr/bin/ss-local
 }
 
