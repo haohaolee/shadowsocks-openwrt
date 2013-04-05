@@ -68,11 +68,11 @@ The latest shadowsocks-libev has provided a transparent mode. You can configure 
     root@Wrt:~# iptables -t nat -A SHADOWSOCKS -d 224.0.0.0/4 -j RETURN
     root@Wrt:~# iptables -t nat -A SHADOWSOCKS -d 240.0.0.0/4 -j RETURN
 
-    # Anything else should be redirected to port 12345
+    # Anything else should be redirected to shadowsocks's local port
     root@Wrt:~# iptables -t nat -A SHADOWSOCKS -p tcp -j REDIRECT --to-ports 12345
     
     # Apply the rules
-    root@Wrt:~# iptables -t nat -A OUTPUT -p tcp -j REDSOCKS
+    root@Wrt:~# iptables -t nat -A OUTPUT -p tcp -j SHADOWSOCKS
     
     # Start the shadowsocks-redir
     root@Wrt:~# ss-redir -c /etc/config/shadowsocks.json -f /var/run/shadowsocks.pid
