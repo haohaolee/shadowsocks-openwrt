@@ -3,11 +3,10 @@ shadowsocks-openwrt
 
 A package of shadowsocks for OpenWrt
 
-### latest version: shadowsocks-libev-2013-3-8
+### latest version: shadowsocks-libev-1.0
 
 ## background
-This is a package description for OpenWrt's buildroot, which grabs source from github.com/haohaolee.com/shadowsocks-libev.
-
+This is a OpenWrt's package description for [shadowsocks-libev](https://github.com/madeye/shadowsocks-libev)
 
 ## build from source
 Download OpenWrt source from [dev][] or SDK from [downloads][]. And go to the root of the SDK or source. e.g.:
@@ -28,7 +27,7 @@ Download OpenWrt source from [dev][] or SDK from [downloads][]. And go to the ro
     drwxr-xr-x 5 haohaolee users  4096 Nov 26 19:03 staging_dir
     drwxr-xr-x 3 haohaolee users  4096 Nov 26 19:03 target
     
-    [haohaolee@arch OpenWrt-SDK]$ git clone https://github.com/haohaolee/shadowsocks-openwrt.git package/shadowsocks-openwrt
+    [haohaolee@arch OpenWrt-SDK]$ git clone https://github.com/madeye/shadowsocks-openwrt.git package/shadowsocks-openwrt
     ...
     [haohaolee@arch OpenWrt-SDK]$ make package/shadowsocks-openwrt/shadowsocks-libev/compile
     ...
@@ -37,13 +36,8 @@ Finally find your package in dir bin
 
 ## Basic usage
 
-Log onto OpenWrt via SSH
+Log into OpenWrt via SSH and edit the config file `/etc/config/shadowsocks.json`. Then start the service like this:
 
-    root@Wrt:~# uci set shadowsocks.config.remote_server="you server address or name"
-    root@Wrt:~# uci set shadowsocks.config.remote_port="your server port"
-    root@Wrt:~# uci set shadowsocks.config.local_port="your local listen port"
-    root@Wrt:~# uci set shadowsocks.config.cipher="table" #or rc4
-    root@Wrt:~# uci set shadowsocks.config.password="your password"
     root@Wrt:~# /etc/init.d/shadowsocks start # start the daemon
     root@Wrt:~# /etc/init.d/shadowsocks enable # enable startup at boot
 
