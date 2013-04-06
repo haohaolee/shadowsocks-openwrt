@@ -45,7 +45,7 @@ Log into OpenWrt via SSH and edit the config file `/etc/config/shadowsocks.json`
     root@Wrt:~# /etc/init.d/shadowsocks start # start the daemon
     root@Wrt:~# /etc/init.d/shadowsocks enable # enable startup at boot
     
-## Advance usage
+## Advanced usage
 
 The latest shadowsocks-libev has provided a transparent mode. You can configure your router with IPTABLES to proxy all tcp traffic transparently.
 
