@@ -40,7 +40,7 @@ You can download the latest prebuilt packages from http://buildbot.sinaapp.com. 
 
 ## Basic usage
 
-Log into OpenWrt via SSH and edit the config file `/etc/config/shadowsocks.json`. Then start the service like this:
+Log into OpenWrt via SSH and edit the config file `/etc/shadowsocks.json`. Then start the service like this:
 
     root@Wrt:~# /etc/init.d/shadowsocks start # start the daemon
     root@Wrt:~# /etc/init.d/shadowsocks enable # enable startup at boot
